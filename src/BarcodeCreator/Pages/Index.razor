@@ -1,0 +1,16 @@
+﻿@page "/"
+
+<EditForm class="form-barcode" Model="@barcodeContent" OnValidSubmit="HandleOnValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal"><a href="https://github.com/m7clarke/BarcodeCreator">Barcode Creator</a></h1>
+        <p>Generate a PDF that contains a Code 128 barcode.</p>
+    </div>
+    
+    <div class="form-label-group">
+        <InputText @bind-Value="barcodeContent.Text" id="inputText" class="form-control" placeholder="Barcode content" required autofocus/>
+        <label for="inputText">Barcode content</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Export PDF</button>
+</EditForm>

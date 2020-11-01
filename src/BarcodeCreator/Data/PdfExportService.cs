@@ -27,7 +27,7 @@
                 throw new ArgumentNullException(nameof(text));
             }
 
-            _logger.LogInformation($"Creating barcode for '{text}'", text);
+            _logger.LogInformation("Creating barcode for '{Text}'", text);
 
             var properties = new WriterProperties();
             properties.SetPdfVersion(PdfVersion.PDF_1_4);
@@ -55,7 +55,7 @@
             PdfCanvas canvas = new PdfCanvas(pdfDoc.GetFirstPage());
             canvas.SaveState();
             canvas.SetExtGState(gState);
-            canvas.AddXObject(xObject, 0f, 0f);
+            canvas.AddXObjectAt(xObject, 0f, 0f);
             canvas.RestoreState();
 
             pdfDoc.Close();

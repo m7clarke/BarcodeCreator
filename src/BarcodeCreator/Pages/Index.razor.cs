@@ -16,12 +16,12 @@
         [Inject]
         public Microsoft.JSInterop.IJSRuntime JavaScript { get; set; }
 
-        protected async Task HandleOnValidSubmit()
+        protected Task HandleOnValidSubmitAsync()
         {
-            await this.CreateBarcodePdf(this.barcodeContent.Text).ConfigureAwait(false);
+            return this.CreateBarcodePdfAsync(this.barcodeContent.Text);
         }
 
-        private async Task CreateBarcodePdf(string text)
+        private async Task CreateBarcodePdfAsync(string text)
         {
             await using MemoryStream pdfStream = this.ExportService.CreatePdf(text);
             await this.JavaScript.SaveAs($"{text}.pdf", pdfStream.ToArray()).ConfigureAwait(false);

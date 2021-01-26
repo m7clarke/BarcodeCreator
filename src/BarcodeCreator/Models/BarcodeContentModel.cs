@@ -1,7 +1,7 @@
-﻿namespace BarcodeCreator.Models
-{
-    using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace BarcodeCreator.Models
+{
     public class BarcodeContentModel
     {
         [Required]

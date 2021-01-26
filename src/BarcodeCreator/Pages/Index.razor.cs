@@ -1,14 +1,14 @@
-﻿namespace BarcodeCreator.Pages
-{
-    using System.IO;
-    using System.Threading.Tasks;
-    using BarcodeCreator.Data;
-    using BarcodeCreator.Models;
-    using Microsoft.AspNetCore.Components;
+﻿using System.IO;
+using System.Threading.Tasks;
+using BarcodeCreator.Data;
+using BarcodeCreator.Models;
+using Microsoft.AspNetCore.Components;
 
+namespace BarcodeCreator.Pages
+{
     public partial class Index
     {
-        private readonly BarcodeContentModel barcodeContent = new BarcodeContentModel();
+        private readonly BarcodeContentModel barcodeContent = new();
 
         [Inject]
         public PdfExportService ExportService { get; set; }

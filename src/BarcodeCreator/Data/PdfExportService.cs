@@ -1,23 +1,23 @@
-﻿namespace BarcodeCreator.Data
-{
-    using System;
-    using System.IO;
-    using iText.Barcodes;
-    using iText.IO.Font;
-    using iText.Kernel.Colors;
-    using iText.Kernel.Font;
-    using iText.Kernel.Pdf;
-    using iText.Kernel.Pdf.Canvas;
-    using iText.Kernel.Pdf.Extgstate;
-    using Microsoft.Extensions.Logging;
+﻿using System;
+using System.IO;
+using iText.Barcodes;
+using iText.IO.Font;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas;
+using iText.Kernel.Pdf.Extgstate;
+using Microsoft.Extensions.Logging;
 
+namespace BarcodeCreator.Data
+{
     public class PdfExportService
     {
         private readonly ILogger<PdfExportService> _logger;
 
-        public PdfExportService(ILogger<PdfExportService> _logger)
+        public PdfExportService(ILogger<PdfExportService> logger)
         {
-            this._logger = _logger ?? throw new ArgumentNullException(nameof(_logger));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public MemoryStream CreatePdf(string text)

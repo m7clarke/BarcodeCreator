@@ -36,7 +36,7 @@ namespace BarcodeCreator.Data
             using var writer = new PdfWriter(stream, properties);
             var pdfDoc = new PdfDocument(writer);
 
-            PdfFont fontOcrb = PdfFontFactory.CreateFont("wwwroot/OCRB.otf", PdfEncodings.WINANSI, true);
+            PdfFont fontOcrb = PdfFontFactory.CreateFont("wwwroot/OCRB.otf", PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
             Color cmykBlack = new DeviceCmyk(0, 0, 0, 100);
             var gState = new PdfExtGState().SetFillOverPrintFlag(true).SetStrokeOverPrintFlag(true).SetOverprintMode(1);
 
